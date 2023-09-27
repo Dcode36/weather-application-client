@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const WeatherComponent = () => {
@@ -6,24 +6,24 @@ const WeatherComponent = () => {
   const [loading, setLoading] = useState(true)
   const [weatherData, setWeatherData] = useState(null);
 
-  
+
   const apiUrl = 'https://weather-application-server.vercel.app/api/weather';
   const apiKey = process.env.API_KEY;
 
   const getWeather = async () => {
     try {
-      setLoading(true); 
+      setLoading(true);
       const response = await axios.get(`${apiUrl}/${city}`, {
         headers: {
           'Authorization': `Bearer ${apiKey}`,
         },
       });
       setWeatherData(response.data);
-      setLoading(false); 
+      setLoading(false);
     } catch (error) {
       console.error(error);
       // Handle errors here
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -74,7 +74,10 @@ const WeatherComponent = () => {
                     <div className="city">
                       <h3 className='temp'>Temp : {weatherData.main.temp}°C</h3>
                       <div className='desciption'>
-                        <img src={weatherIcons[weatherData.weather[0].icon]} alt="Weather Icon" />
+                        <img
+                          src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
+                          alt="Weather Icon"
+                        />
                         <h4>
                           {weatherData.weather[0].description}
                         </h4>
@@ -98,7 +101,7 @@ const WeatherComponent = () => {
                         <p>Feels Like: <span>{weatherData.main.feels_like}°C</span></p>
                         <p>Min Temperature: <span>{weatherData.main.temp_min}°C</span></p>
                         <p>Max Temperature: <span>{weatherData.main.temp_max}°C</span></p>
-                      <br />
+                        <br />
                         <p>Humidity: <span>{weatherData.main.humidity}%</span></p>
                         <p>Visibility: <span>{weatherData.visibility} meters</span></p>
                       </div>
@@ -107,7 +110,7 @@ const WeatherComponent = () => {
                       <div className='parameters'>
                         <h4>Others Parameters : </h4>
                         <p>Pressure: <span>{weatherData.main.pressure} hPa</span></p>
-                      
+
                         <p>Wind Speed: <span>{weatherData.wind.speed} m/s</span></p>
                         <p>Wind Direction: {weatherData.wind.deg}°</p>
                         <p>Cloudiness: <span>{weatherData.clouds.all}%</span></p>
