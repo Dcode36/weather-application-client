@@ -7,7 +7,7 @@ const WeatherComponent = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   
-  const apiUrl = 'http://localhost:4000/api/weather';
+  const apiUrl = 'https://weather-application-server.vercel.app/api/weather';
   const apiKey = process.env.API_KEY;
 
   const getWeather = async () => {
