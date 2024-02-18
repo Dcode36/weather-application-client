@@ -33,6 +33,6 @@ Explore real-time weather updates and plan your days effortlessly with Weatherly
 
 Feel free to contribute, report issues, or suggest enhancements. Let's make Weatherly the best weather app out there!
 
-🌦️ [Live Demo](#insert_live_link)
+🌦️ [Live Demo](https://weather-application-client.vercel.app/)
 
 Happy weather tracking! 🌈
